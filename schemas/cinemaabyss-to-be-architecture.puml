@@ -1,0 +1,97 @@
+@startuml CinemaAbyss Current Architecture (As-Implemented)
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title Container Diagram for CinemaAbyss Current Implementation
+
+Person(customer, "Customer", "Пользователь стримингового сервиса")
+
+System_Boundary(cinemaabyss, "CinemaAbyss Platform") {
+
+    ' Client Applications (концептуальные - не реализованы)
+    Container(web_client, "Web/Mobile/TV Clients", "Various", "Клиентские приложения (концептуальные)")
+
+    ' API Gateway - Proxy Service (частично реализован)
+    Container(proxy_service, "Proxy Service", "Go", "API Gateway с поддержкой Strangler Fig паттерна, маршрутизация между монолитом и микросервисами")
+
+    ' Monolith - полностью реализован
+    Container(monolith, "Monolith Service", "Go", "Обрабатывает пользователей, фильмы, платежи, подписки")
+
+    ' Movies Microservice - полностью реализован
+    Container(movies_service, "Movies Microservice", "Go", "Микросервис для управления метаданными фильмов, жанрами, рейтингами")
+
+    ' Events Service - только инфраструктура, код отсутствует
+    Container(events_service, "Events Microservice", "Go", "Обработка событий через Kafka (только инфраструктура)")
+
+    ' Database
+    ContainerDb(postgres, "PostgreSQL Database", "PostgreSQL", "Единая база данных для всех сервисов")
+
+    ' Message Broker
+    Container(kafka, "Apache Kafka", "Kafka", "Брокер сообщений для асинхронной коммуникации")
+}
+
+' External Systems (концептуальные)
+System_Ext(external_systems, "External Systems", "Внешние системы (платежи, рекомендации)")
+
+' Client interactions
+Rel(customer, web_client, "Использует", "HTTPS")
+
+' Client to Proxy
+Rel(web_client, proxy_service, "API вызовы", "HTTP/REST")
+
+' Proxy routing (Strangler Fig pattern)
+Rel(proxy_service, monolith, "Маршрутизирует запросы", "HTTP/REST")
+Rel(proxy_service, movies_service, "Маршрутизирует запросы фильмов", "HTTP/REST")
+Rel(proxy_service, events_service, "Маршрутизирует события", "HTTP/REST")
+
+' Services to Database
+Rel(monolith, postgres, "Управляет всеми данными", "SQL/TCP")
+Rel(movies_service, postgres, "Читает/записывает фильмы", "SQL/TCP")
+
+' Kafka integration (configured but not fully implemented)
+Rel(events_service, kafka, "Обрабатывает события", "Kafka Protocol")
+
+' External integrations (conceptual)
+Rel(monolith, external_systems, "Интеграции", "HTTPS/API")
+
+SHOW_LEGEND()
+
+note right of proxy_service
+  **Strangler Fig Pattern:**
+  - Постепенная миграция трафика
+  - Процентная маршрутизация (50% на movies)
+  - Фиче-флаги для контроля
+  - Единая точка входа
+end note
+
+note right of monolith
+  **Полностью реализован:**
+  - Управление пользователями
+  - Метаданные фильмов
+  - Обработка платежей
+  - Управление подписками
+  - REST API endpoints
+end note
+
+note right of movies_service
+  - Извлечен из монолита
+  - Метаданные фильмов
+  - Жанры и рейтинги
+  - Идентичный API с монолитом
+end note
+
+note right of events_service
+  **Только инфраструктура:**
+  - Kubernetes манифесты ✓
+  - Docker конфигурация ✓
+  - Исходный код ✗
+  - Dockerfile ✗
+end note
+
+note right of kafka
+  **Настроенные топики:**
+  - movie-events:1:1
+  - user-events:1:1
+  - payment-events:1:1
+end note
+
+@enduml
