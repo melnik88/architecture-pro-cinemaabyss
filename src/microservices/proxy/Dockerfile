@@ -3,11 +3,14 @@ FROM node:18-alpine
 # Set working directory
 WORKDIR /app
 
+# Install curl for healthcheck
+RUN apk --no-cache add curl
+
 # Copy package files
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --only=production --registry=https://registry.npmjs.org/
+RUN npm ci --omit=dev
 
 # Copy application code
 COPY . .

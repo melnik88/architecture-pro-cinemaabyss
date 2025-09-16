@@ -24,48 +24,138 @@ jobs:
   api-tests:
     name: Run API Tests
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Docker Compose
         run: |
           docker compose --version
-      
+          # Install curl for health checks
+          sudo apt-get update && sudo apt-get install -y curl
+
       - name: Start services with Docker Compose
         run: |
           docker compose up -d
           # Wait for services to be ready
           echo "Waiting for services to be ready..."
           sleep 120
-      
+
+      - name: Check services health
+        run: |
+          echo "Checking service health..."
+          docker compose ps
+
+          # Check if all services are running
+          for service in postgres zookeeper kafka monolith movies-service events-service proxy-service; do
+            if ! docker compose ps $service | grep -q "Up"; then
+              echo "Service $service is not running properly"
+              docker compose logs $service
+              exit 1
+            fi
+          done
+
+          # Wait a bit more for Kafka to be fully ready
+          echo "Waiting additional time for Kafka initialization..."
+          sleep 60
+
+          # Check health endpoints
+          echo "Checking health endpoints..."
+
+          # Check monolith health
+          for i in {1..30}; do
+            if curl -f http://localhost:8080/api/health > /dev/null 2>&1; then
+              echo "✅ Monolith health check passed"
+              break
+            fi
+            echo "⏳ Waiting for monolith... ($i/30)"
+            sleep 2
+          done
+
+          # Check movies service health
+          for i in {1..30}; do
+            if curl -f http://localhost:8081/api/movies/health > /dev/null 2>&1; then
+              echo "✅ Movies service health check passed"
+              break
+            fi
+            echo "⏳ Waiting for movies service... ($i/30)"
+            sleep 2
+          done
+
+          # Check events service health
+          for i in {1..30}; do
+            if curl -f http://localhost:8082/api/events/health > /dev/null 2>&1; then
+              echo "✅ Events service health check passed"
+              break
+            fi
+            echo "⏳ Waiting for events service... ($i/30)"
+            sleep 2
+          done
+
+          # Check proxy service health
+          for i in {1..30}; do
+            if curl -f http://localhost:8000/health > /dev/null 2>&1; then
+              echo "✅ Proxy service health check passed"
+              break
+            fi
+            echo "⏳ Waiting for proxy service... ($i/30)"
+            sleep 2
+          done
+
+          echo "All services are ready!"
+
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
           cache-dependency-path: tests/postman/package-lock.json
-      
+
       - name: Install Newman and dependencies
         working-directory: tests/postman
         run: npm install
-      
+
       - name: Run API tests
         working-directory: tests/postman
         run: |
-
-          docker compose up -d
-          # Wait for services to be ready
-          echo "Waiting for services to be ready..."
-          sleep 15
-          # Build the Docker image
+          # Build the Docker image for tests
+          echo "Building test Docker image..."
           docker build -t cinemaabyss-api-tests .
-          
-          # Run the tests in Docker
-          docker run --network=cinemaabyss-network -v "$(pwd)/reports:/app/reports" cinemaabyss-api-tests
-        
-      
+
+          # Create reports directory
+          mkdir -p reports
+
+          # Run the tests in Docker with proper network connection
+          echo "Running API tests..."
+          docker run --network=cinemaabyss-network \
+            -v "$(pwd)/reports:/app/reports" \
+            --rm \
+            cinemaabyss-api-tests --environment docker
+
+          echo "Tests completed!"
+
+      - name: Upload test reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-reports
+          path: tests/postman/reports/
+          retention-days: 30
+
+      - name: Display test results
+        if: always()
+        working-directory: tests/postman
+        run: |
+          echo "=== Test Results Summary ==="
+          if [ -d "reports" ] && [ "$(ls -A reports)" ]; then
+            echo "Reports generated:"
+            ls -la reports/
+          else
+            echo "No reports found"
+          fi
+
+
       - name: Stop services
         if: always()
         run: docker compose down

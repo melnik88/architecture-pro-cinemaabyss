@@ -25,36 +25,46 @@ const TOPICS = {
   PAYMENT_EVENTS: 'payment-events'
 };
 
-// Initialize Kafka
-async function initKafka() {
-  try {
-    console.log('Connecting to Kafka...');
-    await producer.connect();
-    await consumer.connect();
+// Initialize Kafka with retry logic
+async function initKafka(retries = 10, delay = 5000) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      console.log(`Connecting to Kafka... (attempt ${i + 1}/${retries})`);
+      await producer.connect();
+      await consumer.connect();
 
-    // Subscribe to all topics to consume events
-    await consumer.subscribe({ topics: Object.values(TOPICS) });
+      // Subscribe to all topics to consume events
+      await consumer.subscribe({ topics: Object.values(TOPICS) });
 
-    // Start consuming messages
-    await consumer.run({
-      eachMessage: async ({ topic, partition, message }) => {
-        const eventData = JSON.parse(message.value.toString());
-        console.log(`[KAFKA CONSUMER] Received event from topic ${topic}:`, {
-          partition,
-          offset: message.offset,
-          timestamp: message.timestamp,
-          data: eventData
-        });
+      // Start consuming messages
+      await consumer.run({
+        eachMessage: async ({ topic, partition, message }) => {
+          const eventData = JSON.parse(message.value.toString());
+          console.log(`[KAFKA CONSUMER] Received event from topic ${topic}:`, {
+            partition,
+            offset: message.offset,
+            timestamp: message.timestamp,
+            data: eventData
+          });
 
-        // Process the event (log it for MVP)
-        processEvent(topic, eventData, partition, message.offset);
-      },
-    });
+          // Process the event (log it for MVP)
+          processEvent(topic, eventData, partition, message.offset);
+        },
+      });
 
-    console.log('Kafka connected successfully');
-  } catch (error) {
-    console.error('Failed to connect to Kafka:', error);
-    process.exit(1);
+      console.log('Kafka connected successfully');
+      return;
+    } catch (error) {
+      console.error(`Failed to connect to Kafka (attempt ${i + 1}/${retries}):`, error.message);
+
+      if (i === retries - 1) {
+        console.error('Max retries reached. Exiting...');
+        process.exit(1);
+      }
+
+      console.log(`Retrying in ${delay / 1000} seconds...`);
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
   }
 }
 
