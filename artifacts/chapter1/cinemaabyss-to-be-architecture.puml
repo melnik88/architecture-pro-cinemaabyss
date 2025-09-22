@@ -55,43 +55,5 @@ Rel(monolith, external_systems, "Интеграции", "HTTPS/API")
 
 SHOW_LEGEND()
 
-note right of proxy_service
-  **Strangler Fig Pattern:**
-  - Постепенная миграция трафика
-  - Процентная маршрутизация (50% на movies)
-  - Фиче-флаги для контроля
-  - Единая точка входа
-end note
-
-note right of monolith
-  **Полностью реализован:**
-  - Управление пользователями
-  - Метаданные фильмов
-  - Обработка платежей
-  - Управление подписками
-  - REST API endpoints
-end note
-
-note right of movies_service
-  - Извлечен из монолита
-  - Метаданные фильмов
-  - Жанры и рейтинги
-  - Идентичный API с монолитом
-end note
-
-note right of events_service
-  **Только инфраструктура:**
-  - Kubernetes манифесты ✓
-  - Docker конфигурация ✓
-  - Исходный код ✗
-  - Dockerfile ✗
-end note
-
-note right of kafka
-  **Настроенные топики:**
-  - movie-events:1:1
-  - user-events:1:1
-  - payment-events:1:1
-end note
 
 @enduml
