@@ -1,0 +1,31 @@
+{
+  "name": "cinemaabyss-events-service",
+  "version": "1.0.0",
+  "description": "Events microservice for CinemaAbyss - handles Kafka events for movies, users, and payments",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "kafka",
+    "events",
+    "microservice",
+    "nodejs",
+    "express"
+  ],
+  "author": "CinemaAbyss Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "kafkajs": "^2.2.4",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

@@ -1,0 +1,341 @@
+For more details, please visit https://support.apple.com/kb/HT208050.
+i112099260:architecture-pro-cinemaabyss melnik88$ colima status
+INFO[0000] colima is running using macOS Virtualization.Framework
+INFO[0000] arch: aarch64
+INFO[0000] runtime: docker
+INFO[0000] mountType: virtiofs
+INFO[0000] docker socket: unix:///Users/melnik88/.colima/default/docker.sock
+INFO[0000] containerd socket: unix:///Users/melnik88/.colima/default/containerd.sock
+INFO[0000] kubernetes: enabled
+i112099260:architecture-pro-cinemaabyss melnik88$ helm version
+version.BuildInfo{Version:"v3.19.0", GitCommit:"3d8990f0836691f0229297773f3524598f46bda6", GitTreeState:"clean", GoVersion:"go1.25.1"}
+i112099260:architecture-pro-cinemaabyss melnik88$ kubectl cluster-info
+Kubernetes control plane is running at https://127.0.0.1:50143
+CoreDNS is running at https://127.0.0.1:50143/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+Metrics-server is running at https://127.0.0.1:50143/api/v1/namespaces/kube-system/services/https:metrics-server:https/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+i112099260:architecture-pro-cinemaabyss melnik88$ helm install cinemaabyss ./src/kubernetes/helm
+NAME: cinemaabyss
+LAST DEPLOYED: Sun Sep 28 16:33:50 2025
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+i112099260:architecture-pro-cinemaabyss melnik88$ kubectl get pods -n cinemaabyss
+NAME                              READY   STATUS             RESTARTS     AGE
+events-service-7c7cfcdf57-wgcrt   0/1     Running            0            7s
+kafka-0                           0/1     Running            0            7s
+monolith-cb687d48c-4swgh          0/1     CrashLoopBackOff   1 (3s ago)   7s
+movies-service-585bdb7768-dpxcv   0/1     CrashLoopBackOff   1 (3s ago)   7s
+postgres-0                        0/1     Running            0            7s
+proxy-service-8dd8d4786-ktvm6     0/1     Running            0            7s
+zookeeper-0                       0/1     Running            0            7s
+
+...
+
+i112099260:architecture-pro-cinemaabyss melnik88$ kubectl get pods -n cinemaabyss
+NAME                              READY   STATUS    RESTARTS       AGE
+events-service-7c7cfcdf57-wgcrt   1/1     Running   1 (51s ago)    112s
+kafka-0                           0/1     Running   1 (30s ago)    112s
+monolith-cb687d48c-4swgh          1/1     Running   2 (108s ago)   112s
+movies-service-585bdb7768-dpxcv   1/1     Running   2 (108s ago)   112s
+postgres-0                        1/1     Running   0              112s
+proxy-service-8dd8d4786-ktvm6     1/1     Running   0              112s
+zookeeper-0                       1/1     Running   0              112s
+i112099260:architecture-pro-cinemaabyss melnik88$ cd tests/postman && npm install
+
+up to date, audited 124 packages in 1s
+
+9 packages are looking for funding
+  run `npm fund` for details
+
+8 vulnerabilities (3 moderate, 5 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+i112099260:postman melnik88$
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+i112099260:architecture-pro-cinemaabyss melnik88$ kubectl get ingress -n cinemaabyss
+NAME                  CLASS   HOSTS                     ADDRESS       PORTS   AGE
+cinemaabyss-ingress   nginx   cinemaabyss.example.com   192.168.5.1   80      4m18s
+i112099260:architecture-pro-cinemaabyss melnik88$ echo "192.168.5.1 cinemaabyss.example.com" | sudo tee -a /etc/hosts
+i112099260:architecture-pro-cinemaabyss melnik88$ cd tests/postman && node run-tests.js --environment kubernetes
+Running tests against kubernetes environment...
+(node:64492) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+newman: could not find "htmlextra" reporter
+  ensure that the reporter is installed in the same directory as newman
+  please install reporter using npm
+
+newman
+
+CinemaAbyss API Tests
+
+❏ Monolith Service
+↳ Health Check
+  GET http://cinemaabyss.example.com/health [200 OK, 357B, 27ms]
+  ✓  Status code is 200
+
+↳ Get All Users
+  GET http://cinemaabyss.example.com/api/users [200 OK, 326B, 82ms]
+  ✓  Status code is 200
+  ✓  Response is an array
+
+↳ Create User
+  POST http://cinemaabyss.example.com/api/users [errored]
+     ESOCKETTIMEDOUT
+  2. Status code is 201
+  3. Response has id
+
+↳ Get User by ID
+  GET http://cinemaabyss.example.com/api/users?id= [200 OK, 326B, 10ms]
+  ✓  Status code is 200
+  4. User ID matches
+
+↳ Get All Movies
+  GET http://cinemaabyss.example.com/api/movies [200 OK, 1.42kB, 55ms]
+  ✓  Status code is 200
+  ✓  Response is an array
+
+↳ Create Movie
+  POST http://cinemaabyss.example.com/api/movies [errored]
+     ESOCKETTIMEDOUT
+  6. Status code is 201
+  7. Response has id
+
+↳ Get Movie by ID
+  GET http://cinemaabyss.example.com/api/movies?id= [200 OK, 1.42kB, 17ms]
+  ✓  Status code is 200
+  8. Movie ID matches
+
+↳ Create Payment
+  POST http://cinemaabyss.example.com/api/payments [500 Internal Server Error, 305B, 7ms]
+  9. Status code is 201
+ 10. Response has id
+
+↳ Get Payment by ID
+  GET http://cinemaabyss.example.com/api/payments?id= [200 OK, 391B, 14ms]
+  ✓  Status code is 200
+ 11. Payment ID matches
+
+↳ Create Subscription
+  POST http://cinemaabyss.example.com/api/subscriptions [500 Internal Server Error, 305B, 4ms]
+ 12. Status code is 201
+ 13. Response has id
+
+↳ Get Subscription by ID
+  GET http://cinemaabyss.example.com/api/subscriptions?id= [200 OK, 530B, 47ms]
+  ✓  Status code is 200
+ 14. Subscription ID matches
+
+❏ Movies Microservice
+↳ Health Check
+  GET http://cinemaabyss.example.com/api/movies/health [200 OK, 171B, 6ms]
+  ✓  Status code is 200
+  ✓  Status is true
+
+↳ Get All Movies
+  GET http://cinemaabyss.example.com/api/movies [200 OK, 1.42kB, 6ms]
+  ✓  Status code is 200
+  ✓  Response is an array
+
+↳ Create Movie
+  POST http://cinemaabyss.example.com/api/movies [errored]
+     ESOCKETTIMEDOUT
+ 16. Status code is 201
+ 17. Response has id
+
+↳ Get Movie by ID
+  GET http://cinemaabyss.example.com/api/movies?id= [200 OK, 1.42kB, 65ms]
+  ✓  Status code is 200
+ 18. Movie ID matches
+
+❏ Events Microservice
+↳ Health Check
+  GET http://cinemaabyss.example.com/api/events/health [200 OK, 226B, 12ms]
+  ✓  Status code is 200
+  ✓  Status is true
+
+↳ Create Movie Event
+  POST http://cinemaabyss.example.com/api/events/movie [500 Internal Server Error, 264B, 86ms]
+ 19. Status code is 201
+ 20. Response has status success
+
+↳ Create User Event
+  POST http://cinemaabyss.example.com/api/events/user [500 Internal Server Error, 264B, 3ms]
+ 21. Status code is 201
+ 22. Response has status success
+
+↳ Create Payment Event
+  POST http://cinemaabyss.example.com/api/events/payment [500 Internal Server Error, 264B, 18ms]
+ 23. Status code is 201
+ 24. Response has status success
+
+❏ Proxy Service
+↳ Health Check
+  GET http://cinemaabyss.example.com/health [200 OK, 357B, 4ms]
+  ✓  Status code is 200
+
+↳ Get All Movies via Proxy
+  GET http://cinemaabyss.example.com/api/movies [200 OK, 1.42kB, 10ms]
+  ✓  Status code is 200
+  ✓  Response is an array
+
+↳ Get All Users via Proxy
+  GET http://cinemaabyss.example.com/api/users [200 OK, 326B, 11ms]
+  ✓  Status code is 200
+  ✓  Response is an array
+
+┌─────────────────────────┬──────────────────┬──────────────────┐
+│                         │         executed │           failed │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              iterations │                1 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│                requests │               22 │                3 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│            test-scripts │               22 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│      prerequest-scripts │                0 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              assertions │               42 │               21 │
+├─────────────────────────┴──────────────────┴──────────────────┤
+│ total run duration: 33.1s                                     │
+├───────────────────────────────────────────────────────────────┤
+│ total data received: 8.02kB (approx)                          │
+├───────────────────────────────────────────────────────────────┤
+│ average response time: 27ms [min: 3ms, max: 86ms, s.d.: 27ms] │
+└───────────────────────────────────────────────────────────────┘
+
+   #  failure                detail
+
+ 01.  Error                  ESOCKETTIMEDOUT
+                             at request
+                             inside "Monolith Service / Create User"
+
+ 02.  AssertionError         Status code is 201
+                             expected { Object (id, _details, ...) } to have property 'code'
+                             at assertion:0 in test-script
+                             inside "Monolith Service / Create User"
+
+ 03.  JSONError              Response has id
+                             "undefined" is not valid JSON
+                             at assertion:1 in test-script
+                             inside "Monolith Service / Create User"
+
+ 04.  AssertionError         User ID matches
+                             expected undefined to equal NaN
+                             at assertion:1 in test-script
+                             inside "Monolith Service / Get User by ID"
+
+ 05.  Error                  ESOCKETTIMEDOUT
+                             at request
+                             inside "Monolith Service / Create Movie"
+
+ 06.  AssertionError         Status code is 201
+                             expected { Object (id, _details, ...) } to have property 'code'
+                             at assertion:0 in test-script
+                             inside "Monolith Service / Create Movie"
+
+ 07.  JSONError              Response has id
+                             "undefined" is not valid JSON
+                             at assertion:1 in test-script
+                             inside "Monolith Service / Create Movie"
+
+ 08.  AssertionError         Movie ID matches
+                             expected undefined to equal NaN
+                             at assertion:1 in test-script
+                             inside "Monolith Service / Get Movie by ID"
+
+ 09.  AssertionError         Status code is 201
+                             expected response to have status code 201 but got 500
+                             at assertion:0 in test-script
+                             inside "Monolith Service / Create Payment"
+
+ 10.  AssertionError         Response has id
+                             expected undefined to exist
+                             at assertion:1 in test-script
+                             inside "Monolith Service / Create Payment"
+
+ 11.  AssertionError         Payment ID matches
+                             expected undefined to equal NaN
+                             at assertion:1 in test-script
+                             inside "Monolith Service / Get Payment by ID"
+
+ 12.  AssertionError         Status code is 201
+                             expected response to have status code 201 but got 500
+                             at assertion:0 in test-script
+                             inside "Monolith Service / Create Subscription"
+
+ 13.  AssertionError         Response has id
+                             expected undefined to exist
+                             at assertion:1 in test-script
+                             inside "Monolith Service / Create Subscription"
+
+ 14.  AssertionError         Subscription ID matches
+                             expected undefined to equal NaN
+                             at assertion:1 in test-script
+                             inside "Monolith Service / Get Subscription by ID"
+
+ 15.  Error                  ESOCKETTIMEDOUT
+                             at request
+                             inside "Movies Microservice / Create Movie"
+
+ 16.  AssertionError         Status code is 201
+                             expected { Object (id, _details, ...) } to have property 'code'
+                             at assertion:0 in test-script
+                             inside "Movies Microservice / Create Movie"
+
+ 17.  JSONError              Response has id
+                             "undefined" is not valid JSON
+                             at assertion:1 in test-script
+                             inside "Movies Microservice / Create Movie"
+
+ 18.  AssertionError         Movie ID matches
+                             expected undefined to equal NaN
+                             at assertion:1 in test-script
+                             inside "Movies Microservice / Get Movie by ID"
+
+ 19.  AssertionError         Status code is 201
+                             expected response to have status code 201 but got 500
+                             at assertion:0 in test-script
+                             inside "Events Microservice / Create Movie Event"
+
+ 20.  AssertionError         Response has status success
+                             expected undefined to equal 'success'
+                             at assertion:1 in test-script
+                             inside "Events Microservice / Create Movie Event"
+
+ 21.  AssertionError         Status code is 201
+                             expected response to have status code 201 but got 500
+                             at assertion:0 in test-script
+                             inside "Events Microservice / Create User Event"
+
+ 22.  AssertionError         Response has status success
+                             expected undefined to equal 'success'
+                             at assertion:1 in test-script
+                             inside "Events Microservice / Create User Event"
+
+ 23.  AssertionError         Status code is 201
+                             expected response to have status code 201 but got 500
+                             at assertion:0 in test-script
+                             inside "Events Microservice / Create Payment Event"
+
+ 24.  AssertionError         Response has status success
+                             expected undefined to equal 'success'
+                             at assertion:1 in test-script
+                             inside "Events Microservice / Create Payment Event"
+Newman run completed!
+Total requests: 22
+Failed requests: 3
+Total assertions: 42
+Failed assertions: 21
+i112099260:postman melnik88$

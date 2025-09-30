@@ -135,14 +135,14 @@ spec:
           name: kafka
         resources:
           requests:
-            memory: "512Mi"
+            memory: "1Gi"
             cpu: "200m"
           limits:
-            memory: "1Gi"
+            memory: "2Gi"
             cpu: "1000m"
         env:
         - name: KAFKA_ADVERTISED_LISTENERS
-          value: PLAINTEXT://kafka:9092
+          value: PLAINTEXT://kafka-0.kafka.cinemaabyss.svc.cluster.local:9092
         - name: KAFKA_LISTENERS
           value: PLAINTEXT://0.0.0.0:9092
         - name: KAFKA_PORT
@@ -157,19 +157,33 @@ spec:
           value: "1"
         - name: KAFKA_LOG_DIRS
           value: "/kafka/kafka-logs"
+        - name: KAFKA_HEAP_OPTS
+          value: "-Xmx512m -Xms512m"
+        - name: KAFKA_JVM_PERFORMANCE_OPTS
+          value: "-server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35 -XX:+ExplicitGCInvokesConcurrent -Djava.awt.headless=true"
+        - name: KAFKA_LOG_RETENTION_HOURS
+          value: "24"
+        - name: KAFKA_LOG_SEGMENT_BYTES
+          value: "1073741824"
+        - name: KAFKA_LOG_RETENTION_BYTES
+          value: "1073741824"
         volumeMounts:
         - name: kafka-data
           mountPath: /kafka
         readinessProbe:
           tcpSocket:
             port: 9092
-          initialDelaySeconds: 15
-          periodSeconds: 10
+          initialDelaySeconds: 45
+          periodSeconds: 15
+          timeoutSeconds: 5
+          failureThreshold: 6
         livenessProbe:
           tcpSocket:
             port: 9092
-          initialDelaySeconds: 60
-          periodSeconds: 20
+          initialDelaySeconds: 120
+          periodSeconds: 30
+          timeoutSeconds: 5
+          failureThreshold: 3
       volumes:
       - name: kafka-data
         persistentVolumeClaim:

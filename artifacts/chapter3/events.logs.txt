@@ -1,0 +1,80 @@
+i112099260:architecture-pro-cinemaabyss melnik88$ kubectl -n cinemaabyss logs events-service-7c7cfcdf57-m75pb
+
+> cinemaabyss-events-service@1.0.0 start
+> node index.js
+
+{"level":"WARN","timestamp":"2025-09-20T13:40:56.997Z","logger":"kafkajs","message":"KafkaJS v2.0.0 switched default partitioner. To retain the same partitioning behavior as in previous versions, create the producer with the option \"createPartitioner: Partitioners.LegacyPartitioner\". See the migration guide at https://kafka.js.org/docs/migration-guide-v2.0.0#producer-new-default-partitioner for details. Silence this warning by setting the environment variable \"KAFKAJS_NO_PARTITIONER_WARNING=1\""}
+Connecting to Kafka... (attempt 1/10)
+{"level":"INFO","timestamp":"2025-09-20T13:40:57.126Z","logger":"kafkajs","message":"[Consumer] Starting","groupId":"events-service-group"}
+{"level":"INFO","timestamp":"2025-09-20T13:40:57.228Z","logger":"kafkajs","message":"[ConsumerGroup] Consumer has joined the group","groupId":"events-service-group","memberId":"events-service-82c99ecb-69c9-4a1c-8a60-5976b8297c45","leaderId":"events-service-82c99ecb-69c9-4a1c-8a60-5976b8297c45","isLeader":true,"memberAssignment":{"movie-events":[0],"user-events":[0],"payment-events":[0]},"groupProtocol":"RoundRobinAssigner","duration":101}
+Kafka connected successfully
+Events service running on port 8082
+Health check: http://localhost:8082/api/events/health
+Unhandled error: SyntaxError: Unexpected token , in JSON at position 18
+    at JSON.parse (<anonymous>)
+    at parse (/app/node_modules/body-parser/lib/types/json.js:92:19)
+    at /app/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+    at invokeCallback (/app/node_modules/raw-body/index.js:238:16)
+    at done (/app/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/app/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:517:28)
+    at endReadableNT (node:internal/streams/readable:1400:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  expose: true,
+  statusCode: 400,
+  status: 400,
+  body: '{\n' +
+    '    "movie_id": ,\n' +
+    '    "title": "Test Movie Event",\n' +
+    '    "action": "viewed",\n' +
+    '    "user_id": \n' +
+    '}',
+  type: 'entity.parse.failed'
+}
+Unhandled error: SyntaxError: Unexpected token , in JSON at position 17
+    at JSON.parse (<anonymous>)
+    at parse (/app/node_modules/body-parser/lib/types/json.js:92:19)
+    at /app/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+    at invokeCallback (/app/node_modules/raw-body/index.js:238:16)
+    at done (/app/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/app/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:517:28)
+    at endReadableNT (node:internal/streams/readable:1400:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  expose: true,
+  statusCode: 400,
+  status: 400,
+  body: '{\n' +
+    '    "user_id": ,\n' +
+    '    "username": "testuser",\n' +
+    '    "action": "logged_in",\n' +
+    '    "timestamp": "2025-09-20T13:48:01.590Z"\n' +
+    '}',
+  type: 'entity.parse.failed'
+}
+Unhandled error: SyntaxError: Unexpected token , in JSON at position 20
+    at JSON.parse (<anonymous>)
+    at parse (/app/node_modules/body-parser/lib/types/json.js:92:19)
+    at /app/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+    at invokeCallback (/app/node_modules/raw-body/index.js:238:16)
+    at done (/app/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/app/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:517:28)
+    at endReadableNT (node:internal/streams/readable:1400:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  expose: true,
+  statusCode: 400,
+  status: 400,
+  body: '{\n' +
+    '    "payment_id": ,\n' +
+    '    "user_id": ,\n' +
+    '    "amount": 9.99,\n' +
+    '    "status": "completed",\n' +
+    '    "timestamp": "2025-09-20T13:48:01.709Z",\n' +
+    '    "method_type": "credit_card"\n' +
+    '}',
+  type: 'entity.parse.failed'
+}

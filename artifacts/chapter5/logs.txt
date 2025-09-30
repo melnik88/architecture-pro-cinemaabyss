@@ -1,0 +1,493 @@
+i112099260:architecture-pro-cinemaabyss melnik88$ kubectl exec -n cinemaabyss fortio-deploy-74ffb9b4d6-z2fkd -c fortio -- fortio load -c 50 -qps 0 -n 500 -loglevel Warning http://movies-service:8081/api/movies
+{"ts":1758555677.675016,"level":"info","r":1,"file":"logger.go","line":298,"msg":"Log level is now 3 Warning (was 2 Info)"}
+Fortio 1.69.5 running at 0 queries per second, 4->4 procs, for 500 calls: http://movies-service:8081/api/movies
+Starting at max qps with 50 thread(s) [gomax 4] for exactly 500 calls (10 per thread + 0)
+{"ts":1758555677.726465,"level":"warn","r":165,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":26,"run":0}
+{"ts":1758555677.726571,"level":"warn","r":175,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":36,"run":0}
+{"ts":1758555677.726674,"level":"warn","r":179,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":40,"run":0}
+{"ts":1758555677.733541,"level":"warn","r":143,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":4,"run":0}
+{"ts":1758555677.741657,"level":"warn","r":144,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":5,"run":0}
+{"ts":1758555677.741735,"level":"warn","r":170,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":31,"run":0}
+{"ts":1758555677.741756,"level":"warn","r":169,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":30,"run":0}
+{"ts":1758555677.741787,"level":"warn","r":166,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":27,"run":0}
+{"ts":1758555677.741824,"level":"warn","r":163,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":24,"run":0}
+{"ts":1758555677.741845,"level":"warn","r":172,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":33,"run":0}
+{"ts":1758555677.742112,"level":"warn","r":171,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":32,"run":0}
+{"ts":1758555677.748811,"level":"warn","r":165,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":26,"run":0}
+{"ts":1758555677.749662,"level":"warn","r":179,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":40,"run":0}
+{"ts":1758555677.750430,"level":"warn","r":187,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":48,"run":0}
+{"ts":1758555677.750588,"level":"warn","r":161,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":22,"run":0}
+{"ts":1758555677.750757,"level":"warn","r":159,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":20,"run":0}
+{"ts":1758555677.751072,"level":"warn","r":158,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":19,"run":0}
+{"ts":1758555677.751897,"level":"warn","r":157,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":18,"run":0}
+{"ts":1758555677.752386,"level":"warn","r":155,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":16,"run":0}
+{"ts":1758555677.752588,"level":"warn","r":154,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":15,"run":0}
+{"ts":1758555677.752743,"level":"warn","r":175,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":36,"run":0}
+{"ts":1758555677.752764,"level":"warn","r":162,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":23,"run":0}
+{"ts":1758555677.752773,"level":"warn","r":160,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":21,"run":0}
+{"ts":1758555677.752783,"level":"warn","r":156,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":17,"run":0}
+{"ts":1758555677.752825,"level":"warn","r":145,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":6,"run":0}
+{"ts":1758555677.754804,"level":"warn","r":183,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":44,"run":0}
+{"ts":1758555677.754881,"level":"warn","r":139,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":0,"run":0}
+{"ts":1758555677.754922,"level":"warn","r":180,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":41,"run":0}
+{"ts":1758555677.754949,"level":"warn","r":174,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":35,"run":0}
+{"ts":1758555677.754974,"level":"warn","r":148,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":9,"run":0}
+{"ts":1758555677.754995,"level":"warn","r":147,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":8,"run":0}
+{"ts":1758555677.755050,"level":"warn","r":146,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":7,"run":0}
+{"ts":1758555677.755075,"level":"warn","r":173,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":34,"run":0}
+{"ts":1758555677.756789,"level":"warn","r":143,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":4,"run":0}
+{"ts":1758555677.756884,"level":"warn","r":163,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":24,"run":0}
+{"ts":1758555677.756898,"level":"warn","r":169,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":30,"run":0}
+{"ts":1758555677.757161,"level":"warn","r":171,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":32,"run":0}
+{"ts":1758555677.757604,"level":"warn","r":170,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":31,"run":0}
+{"ts":1758555677.758327,"level":"warn","r":172,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":33,"run":0}
+{"ts":1758555677.759323,"level":"warn","r":155,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":16,"run":0}
+{"ts":1758555677.757831,"level":"warn","r":165,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":26,"run":0}
+{"ts":1758555677.759945,"level":"warn","r":155,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":16,"run":0}
+{"ts":1758555677.760020,"level":"warn","r":172,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":33,"run":0}
+{"ts":1758555677.757841,"level":"warn","r":144,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":5,"run":0}
+{"ts":1758555677.757849,"level":"warn","r":166,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":27,"run":0}
+{"ts":1758555677.759282,"level":"warn","r":154,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":15,"run":0}
+{"ts":1758555677.759291,"level":"warn","r":163,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":24,"run":0}
+{"ts":1758555677.759298,"level":"warn","r":147,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":8,"run":0}
+{"ts":1758555677.759304,"level":"warn","r":148,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":9,"run":0}
+{"ts":1758555677.759310,"level":"warn","r":183,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":44,"run":0}
+{"ts":1758555677.759319,"level":"warn","r":145,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":6,"run":0}
+{"ts":1758555677.759481,"level":"warn","r":162,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":23,"run":0}
+{"ts":1758555677.759491,"level":"warn","r":175,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":36,"run":0}
+{"ts":1758555677.759500,"level":"warn","r":156,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":17,"run":0}
+{"ts":1758555677.759506,"level":"warn","r":157,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":18,"run":0}
+{"ts":1758555677.759513,"level":"warn","r":158,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":19,"run":0}
+{"ts":1758555677.759518,"level":"warn","r":139,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":0,"run":0}
+{"ts":1758555677.759523,"level":"warn","r":160,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":21,"run":0}
+{"ts":1758555677.759533,"level":"warn","r":159,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":20,"run":0}
+{"ts":1758555677.762481,"level":"warn","r":172,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":33,"run":0}
+{"ts":1758555677.762603,"level":"warn","r":155,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":16,"run":0}
+{"ts":1758555677.759550,"level":"warn","r":187,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":48,"run":0}
+{"ts":1758555677.759555,"level":"warn","r":161,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":22,"run":0}
+{"ts":1758555677.759560,"level":"warn","r":179,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":40,"run":0}
+{"ts":1758555677.759575,"level":"warn","r":146,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":7,"run":0}
+{"ts":1758555677.759839,"level":"warn","r":170,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":31,"run":0}
+{"ts":1758555677.764330,"level":"warn","r":139,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":0,"run":0}
+{"ts":1758555677.764926,"level":"warn","r":165,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":26,"run":0}
+{"ts":1758555677.764342,"level":"warn","r":158,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":19,"run":0}
+{"ts":1758555677.764346,"level":"warn","r":162,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":23,"run":0}
+{"ts":1758555677.764352,"level":"warn","r":160,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":21,"run":0}
+{"ts":1758555677.764357,"level":"warn","r":180,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":41,"run":0}
+{"ts":1758555677.764476,"level":"warn","r":174,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":35,"run":0}
+{"ts":1758555677.764611,"level":"warn","r":173,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":34,"run":0}
+{"ts":1758555677.764700,"level":"warn","r":143,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":4,"run":0}
+{"ts":1758555677.764707,"level":"warn","r":171,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":32,"run":0}
+{"ts":1758555677.764798,"level":"warn","r":169,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":30,"run":0}
+{"ts":1758555677.764838,"level":"warn","r":145,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":6,"run":0}
+{"ts":1758555677.766489,"level":"warn","r":172,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":33,"run":0}
+{"ts":1758555677.766518,"level":"warn","r":147,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":8,"run":0}
+{"ts":1758555677.766576,"level":"warn","r":154,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":15,"run":0}
+{"ts":1758555677.767582,"level":"warn","r":169,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":30,"run":0}
+{"ts":1758555677.768370,"level":"warn","r":146,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":7,"run":0}
+{"ts":1758555677.767665,"level":"warn","r":171,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":32,"run":0}
+{"ts":1758555677.767678,"level":"warn","r":143,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":4,"run":0}
+{"ts":1758555677.767685,"level":"warn","r":187,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":48,"run":0}
+{"ts":1758555677.768280,"level":"warn","r":162,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":23,"run":0}
+{"ts":1758555677.768317,"level":"warn","r":165,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":26,"run":0}
+{"ts":1758555677.768339,"level":"warn","r":160,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":21,"run":0}
+{"ts":1758555677.768345,"level":"warn","r":170,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":31,"run":0}
+{"ts":1758555677.768784,"level":"warn","r":183,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":44,"run":0}
+{"ts":1758555677.768864,"level":"warn","r":155,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":16,"run":0}
+{"ts":1758555677.770043,"level":"warn","r":172,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":33,"run":0}
+{"ts":1758555677.770115,"level":"warn","r":139,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":0,"run":0}
+{"ts":1758555677.772140,"level":"warn","r":155,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":16,"run":0}
+{"ts":1758555677.772249,"level":"warn","r":170,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":31,"run":0}
+{"ts":1758555677.773741,"level":"warn","r":179,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":40,"run":0}
+{"ts":1758555677.773752,"level":"warn","r":145,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":6,"run":0}
+{"ts":1758555677.773787,"level":"warn","r":180,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":41,"run":0}
+{"ts":1758555677.773806,"level":"warn","r":146,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":7,"run":0}
+{"ts":1758555677.773812,"level":"warn","r":157,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":18,"run":0}
+{"ts":1758555677.773820,"level":"warn","r":148,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":9,"run":0}
+{"ts":1758555677.773824,"level":"warn","r":163,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":24,"run":0}
+{"ts":1758555677.773830,"level":"warn","r":159,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":20,"run":0}
+{"ts":1758555677.773835,"level":"warn","r":161,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":22,"run":0}
+{"ts":1758555677.773840,"level":"warn","r":175,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":36,"run":0}
+{"ts":1758555677.773845,"level":"warn","r":156,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":17,"run":0}
+{"ts":1758555677.773850,"level":"warn","r":144,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":5,"run":0}
+{"ts":1758555677.773873,"level":"warn","r":166,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":27,"run":0}
+{"ts":1758555677.773930,"level":"warn","r":158,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":19,"run":0}
+{"ts":1758555677.773999,"level":"warn","r":173,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":34,"run":0}
+{"ts":1758555677.774037,"level":"warn","r":147,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":8,"run":0}
+{"ts":1758555677.774064,"level":"warn","r":139,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":0,"run":0}
+{"ts":1758555677.774070,"level":"warn","r":155,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":16,"run":0}
+{"ts":1758555677.774157,"level":"warn","r":174,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":35,"run":0}
+{"ts":1758555677.774168,"level":"warn","r":154,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":15,"run":0}
+{"ts":1758555677.774242,"level":"warn","r":187,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":48,"run":0}
+{"ts":1758555677.774288,"level":"warn","r":160,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":21,"run":0}
+{"ts":1758555677.774375,"level":"warn","r":162,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":23,"run":0}
+{"ts":1758555677.774458,"level":"warn","r":165,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":26,"run":0}
+{"ts":1758555677.774484,"level":"warn","r":183,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":44,"run":0}
+{"ts":1758555677.774559,"level":"warn","r":169,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":30,"run":0}
+{"ts":1758555677.774661,"level":"warn","r":172,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":33,"run":0}
+{"ts":1758555677.774672,"level":"warn","r":171,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":32,"run":0}
+{"ts":1758555677.774680,"level":"warn","r":143,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":4,"run":0}
+{"ts":1758555677.777044,"level":"warn","r":163,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":24,"run":0}
+{"ts":1758555677.777065,"level":"warn","r":148,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":9,"run":0}
+{"ts":1758555677.777006,"level":"warn","r":157,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":18,"run":0}
+{"ts":1758555677.780733,"level":"warn","r":175,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":36,"run":0}
+{"ts":1758555677.786070,"level":"warn","r":180,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":41,"run":0}
+{"ts":1758555677.787787,"level":"warn","r":179,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":40,"run":0}
+{"ts":1758555677.789245,"level":"warn","r":146,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":7,"run":0}
+{"ts":1758555677.783549,"level":"warn","r":184,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":45,"run":0}
+{"ts":1758555677.783557,"level":"warn","r":167,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":28,"run":0}
+{"ts":1758555677.783564,"level":"warn","r":159,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":20,"run":0}
+{"ts":1758555677.789301,"level":"warn","r":147,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":8,"run":0}
+{"ts":1758555677.789311,"level":"warn","r":145,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":6,"run":0}
+{"ts":1758555677.780770,"level":"warn","r":161,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":22,"run":0}
+{"ts":1758555677.795089,"level":"warn","r":170,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":31,"run":0}
+{"ts":1758555677.795107,"level":"warn","r":157,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":18,"run":0}
+{"ts":1758555677.795117,"level":"warn","r":163,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":24,"run":0}
+{"ts":1758555677.795122,"level":"warn","r":171,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":32,"run":0}
+{"ts":1758555677.795129,"level":"warn","r":172,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":33,"run":0}
+{"ts":1758555677.795135,"level":"warn","r":183,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":44,"run":0}
+{"ts":1758555677.795143,"level":"warn","r":160,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":21,"run":0}
+{"ts":1758555677.795154,"level":"warn","r":187,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":48,"run":0}
+{"ts":1758555677.795162,"level":"warn","r":154,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":15,"run":0}
+{"ts":1758555677.795167,"level":"warn","r":185,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":46,"run":0}
+{"ts":1758555677.795174,"level":"warn","r":174,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":35,"run":0}
+{"ts":1758555677.795181,"level":"warn","r":141,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":2,"run":0}
+{"ts":1758555677.795186,"level":"warn","r":173,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":34,"run":0}
+{"ts":1758555677.809012,"level":"warn","r":159,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":20,"run":0}
+{"ts":1758555677.809459,"level":"warn","r":146,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":7,"run":0}
+{"ts":1758555677.809809,"level":"warn","r":167,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":28,"run":0}
+{"ts":1758555677.810029,"level":"warn","r":175,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":36,"run":0}
+{"ts":1758555677.810254,"level":"warn","r":184,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":45,"run":0}
+{"ts":1758555677.810622,"level":"warn","r":179,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":40,"run":0}
+{"ts":1758555677.810827,"level":"warn","r":148,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":9,"run":0}
+{"ts":1758555677.811016,"level":"warn","r":143,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":4,"run":0}
+{"ts":1758555677.811245,"level":"warn","r":169,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":30,"run":0}
+{"ts":1758555677.811558,"level":"warn","r":165,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":26,"run":0}
+{"ts":1758555677.812219,"level":"warn","r":162,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":23,"run":0}
+{"ts":1758555677.812493,"level":"warn","r":178,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":39,"run":0}
+{"ts":1758555677.812723,"level":"warn","r":157,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":18,"run":0}
+{"ts":1758555677.813051,"level":"warn","r":163,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":24,"run":0}
+{"ts":1758555677.813336,"level":"warn","r":171,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":32,"run":0}
+{"ts":1758555677.813646,"level":"warn","r":170,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":31,"run":0}
+{"ts":1758555677.814659,"level":"warn","r":185,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":46,"run":0}
+{"ts":1758555677.814885,"level":"warn","r":174,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":35,"run":0}
+{"ts":1758555677.814965,"level":"warn","r":141,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":2,"run":0}
+{"ts":1758555677.815028,"level":"warn","r":168,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":29,"run":0}
+{"ts":1758555677.815198,"level":"warn","r":179,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":40,"run":0}
+{"ts":1758555677.815381,"level":"warn","r":148,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":9,"run":0}
+{"ts":1758555677.815424,"level":"warn","r":157,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":18,"run":0}
+{"ts":1758555677.813977,"level":"warn","r":172,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":33,"run":0}
+{"ts":1758555677.813987,"level":"warn","r":183,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":44,"run":0}
+{"ts":1758555677.814638,"level":"warn","r":160,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":21,"run":0}
+{"ts":1758555677.814649,"level":"warn","r":187,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":48,"run":0}
+{"ts":1758555677.814653,"level":"warn","r":154,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":15,"run":0}
+{"ts":1758555677.815605,"level":"warn","r":147,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":8,"run":0}
+{"ts":1758555677.817354,"level":"warn","r":187,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":48,"run":0}
+{"ts":1758555677.818283,"level":"warn","r":164,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":25,"run":0}
+{"ts":1758555677.818352,"level":"warn","r":173,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":34,"run":0}
+{"ts":1758555677.820212,"level":"warn","r":185,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":46,"run":0}
+{"ts":1758555677.817977,"level":"warn","r":159,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":20,"run":0}
+{"ts":1758555677.817985,"level":"warn","r":169,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":30,"run":0}
+{"ts":1758555677.820224,"level":"warn","r":148,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":9,"run":0}
+{"ts":1758555677.820236,"level":"warn","r":143,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":4,"run":0}
+{"ts":1758555677.821479,"level":"warn","r":183,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":44,"run":0}
+{"ts":1758555677.817968,"level":"warn","r":145,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":6,"run":0}
+{"ts":1758555677.826701,"level":"warn","r":185,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":46,"run":0}
+{"ts":1758555677.824016,"level":"warn","r":165,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":26,"run":0}
+{"ts":1758555677.824031,"level":"warn","r":178,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":39,"run":0}
+{"ts":1758555677.824038,"level":"warn","r":162,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":23,"run":0}
+{"ts":1758555677.824043,"level":"warn","r":184,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":45,"run":0}
+{"ts":1758555677.824050,"level":"warn","r":173,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":34,"run":0}
+{"ts":1758555677.824057,"level":"warn","r":143,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":4,"run":0}
+{"ts":1758555677.824062,"level":"warn","r":187,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":48,"run":0}
+{"ts":1758555677.824070,"level":"warn","r":171,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":32,"run":0}
+{"ts":1758555677.824075,"level":"warn","r":163,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":24,"run":0}
+{"ts":1758555677.824082,"level":"warn","r":175,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":36,"run":0}
+{"ts":1758555677.824089,"level":"warn","r":167,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":28,"run":0}
+{"ts":1758555677.824093,"level":"warn","r":146,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":7,"run":0}
+{"ts":1758555677.824107,"level":"warn","r":161,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":22,"run":0}
+{"ts":1758555677.824305,"level":"warn","r":174,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":35,"run":0}
+{"ts":1758555677.824314,"level":"warn","r":141,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":2,"run":0}
+{"ts":1758555677.824328,"level":"warn","r":170,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":31,"run":0}
+{"ts":1758555677.824365,"level":"warn","r":179,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":40,"run":0}
+{"ts":1758555677.824502,"level":"warn","r":160,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":21,"run":0}
+{"ts":1758555677.825256,"level":"warn","r":154,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":15,"run":0}
+{"ts":1758555677.826029,"level":"warn","r":164,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":25,"run":0}
+{"ts":1758555677.826671,"level":"warn","r":172,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":33,"run":0}
+{"ts":1758555677.826677,"level":"warn","r":147,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":8,"run":0}
+{"ts":1758555677.826683,"level":"warn","r":157,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":18,"run":0}
+{"ts":1758555677.831201,"level":"warn","r":149,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":10,"run":0}
+{"ts":1758555677.831309,"level":"warn","r":148,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":9,"run":0}
+{"ts":1758555677.831477,"level":"warn","r":169,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":30,"run":0}
+{"ts":1758555677.831599,"level":"warn","r":159,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":20,"run":0}
+{"ts":1758555677.835698,"level":"warn","r":183,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":44,"run":0}
+{"ts":1758555677.844576,"level":"warn","r":179,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":40,"run":0}
+{"ts":1758555677.845413,"level":"warn","r":154,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":15,"run":0}
+{"ts":1758555677.845625,"level":"warn","r":169,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":30,"run":0}
+{"ts":1758555677.846171,"level":"warn","r":159,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":20,"run":0}
+{"ts":1758555677.848021,"level":"warn","r":139,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":0,"run":0}
+{"ts":1758555677.848133,"level":"warn","r":147,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":8,"run":0}
+{"ts":1758555677.848139,"level":"warn","r":161,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":22,"run":0}
+{"ts":1758555677.848147,"level":"warn","r":164,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":25,"run":0}
+{"ts":1758555677.848153,"level":"warn","r":149,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":10,"run":0}
+{"ts":1758555677.848159,"level":"warn","r":145,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":6,"run":0}
+{"ts":1758555677.848164,"level":"warn","r":184,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":45,"run":0}
+{"ts":1758555677.848169,"level":"warn","r":148,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":9,"run":0}
+{"ts":1758555677.848235,"level":"warn","r":174,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":35,"run":0}
+{"ts":1758555677.848243,"level":"warn","r":170,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":31,"run":0}
+{"ts":1758555677.848247,"level":"warn","r":141,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":2,"run":0}
+{"ts":1758555677.848255,"level":"warn","r":146,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":7,"run":0}
+{"ts":1758555677.848274,"level":"warn","r":160,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":21,"run":0}
+{"ts":1758555677.854691,"level":"warn","r":171,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":32,"run":0}
+{"ts":1758555677.854730,"level":"warn","r":175,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":36,"run":0}
+{"ts":1758555677.859415,"level":"warn","r":163,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":24,"run":0}
+{"ts":1758555677.861908,"level":"warn","r":143,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":4,"run":0}
+{"ts":1758555677.861917,"level":"warn","r":183,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":44,"run":0}
+{"ts":1758555677.862067,"level":"warn","r":187,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":48,"run":0}
+{"ts":1758555677.862134,"level":"warn","r":154,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":15,"run":0}
+{"ts":1758555677.862153,"level":"warn","r":169,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":30,"run":0}
+{"ts":1758555677.862170,"level":"warn","r":173,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":34,"run":0}
+{"ts":1758555677.862188,"level":"warn","r":162,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":23,"run":0}
+{"ts":1758555677.862201,"level":"warn","r":185,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":46,"run":0}
+{"ts":1758555677.862209,"level":"warn","r":181,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":42,"run":0}
+{"ts":1758555677.862221,"level":"warn","r":157,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":18,"run":0}
+{"ts":1758555677.862228,"level":"warn","r":179,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":40,"run":0}
+{"ts":1758555677.862239,"level":"warn","r":165,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":26,"run":0}
+{"ts":1758555677.865131,"level":"warn","r":171,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":32,"run":0}
+{"ts":1758555677.865157,"level":"warn","r":141,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":2,"run":0}
+{"ts":1758555677.865387,"level":"warn","r":140,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":1,"run":0}
+{"ts":1758555677.865396,"level":"warn","r":170,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":31,"run":0}
+{"ts":1758555677.865402,"level":"warn","r":174,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":35,"run":0}
+{"ts":1758555677.865411,"level":"warn","r":148,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":9,"run":0}
+{"ts":1758555677.865417,"level":"warn","r":145,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":6,"run":0}
+{"ts":1758555677.865422,"level":"warn","r":147,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":8,"run":0}
+{"ts":1758555677.865426,"level":"warn","r":159,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":20,"run":0}
+{"ts":1758555677.865440,"level":"warn","r":175,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":36,"run":0}
+{"ts":1758555677.865446,"level":"warn","r":139,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":0,"run":0}
+{"ts":1758555677.865452,"level":"warn","r":160,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":21,"run":0}
+{"ts":1758555677.865459,"level":"warn","r":146,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":7,"run":0}
+{"ts":1758555677.865466,"level":"warn","r":164,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":25,"run":0}
+{"ts":1758555677.865472,"level":"warn","r":149,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":10,"run":0}
+{"ts":1758555677.865479,"level":"warn","r":161,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":22,"run":0}
+{"ts":1758555677.865485,"level":"warn","r":184,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":45,"run":0}
+{"ts":1758555677.867826,"level":"warn","r":163,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":24,"run":0}
+{"ts":1758555677.867894,"level":"warn","r":143,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":4,"run":0}
+{"ts":1758555677.868007,"level":"warn","r":162,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":23,"run":0}
+{"ts":1758555677.868546,"level":"warn","r":139,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":0,"run":0}
+{"ts":1758555677.868640,"level":"warn","r":147,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":8,"run":0}
+{"ts":1758555677.868645,"level":"warn","r":174,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":35,"run":0}
+{"ts":1758555677.868653,"level":"warn","r":140,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":1,"run":0}
+{"ts":1758555677.868659,"level":"warn","r":165,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":26,"run":0}
+{"ts":1758555677.868664,"level":"warn","r":181,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":42,"run":0}
+{"ts":1758555677.868670,"level":"warn","r":175,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":36,"run":0}
+{"ts":1758555677.872251,"level":"warn","r":164,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":25,"run":0}
+{"ts":1758555677.877301,"level":"warn","r":174,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":35,"run":0}
+{"ts":1758555677.872293,"level":"warn","r":185,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":46,"run":0}
+{"ts":1758555677.872300,"level":"warn","r":173,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":34,"run":0}
+{"ts":1758555677.872305,"level":"warn","r":154,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":15,"run":0}
+{"ts":1758555677.872313,"level":"warn","r":187,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":48,"run":0}
+{"ts":1758555677.872317,"level":"warn","r":183,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":44,"run":0}
+{"ts":1758555677.872449,"level":"warn","r":161,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":22,"run":0}
+{"ts":1758555677.872992,"level":"warn","r":139,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":0,"run":0}
+{"ts":1758555677.872999,"level":"warn","r":146,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":7,"run":0}
+{"ts":1758555677.873003,"level":"warn","r":159,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":20,"run":0}
+{"ts":1758555677.873007,"level":"warn","r":145,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":6,"run":0}
+{"ts":1758555677.873012,"level":"warn","r":157,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":18,"run":0}
+{"ts":1758555677.873077,"level":"warn","r":149,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":10,"run":0}
+{"ts":1758555677.873106,"level":"warn","r":162,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":23,"run":0}
+{"ts":1758555677.873126,"level":"warn","r":186,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":47,"run":0}
+{"ts":1758555677.880206,"level":"warn","r":140,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":1,"run":0}
+{"ts":1758555677.882418,"level":"warn","r":185,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":46,"run":0}
+{"ts":1758555677.882428,"level":"warn","r":164,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":25,"run":0}
+{"ts":1758555677.882947,"level":"warn","r":149,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":10,"run":0}
+{"ts":1758555677.882957,"level":"warn","r":182,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":43,"run":0}
+{"ts":1758555677.882964,"level":"warn","r":145,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":6,"run":0}
+{"ts":1758555677.882981,"level":"warn","r":173,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":34,"run":0}
+{"ts":1758555677.883809,"level":"warn","r":142,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":3,"run":0}
+{"ts":1758555677.883842,"level":"warn","r":161,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":22,"run":0}
+{"ts":1758555677.890206,"level":"warn","r":186,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":47,"run":0}
+{"ts":1758555677.890219,"level":"warn","r":149,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":10,"run":0}
+{"ts":1758555677.890224,"level":"warn","r":185,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":46,"run":0}
+{"ts":1758555677.890230,"level":"warn","r":164,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":25,"run":0}
+{"ts":1758555677.917908,"level":"warn","r":185,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":46,"run":0}
+{"ts":1758555677.918076,"level":"warn","r":142,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":3,"run":0}
+{"ts":1758555677.918743,"level":"warn","r":151,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":12,"run":0}
+{"ts":1758555677.926316,"level":"warn","r":153,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":14,"run":0}
+{"ts":1758555677.940193,"level":"warn","r":161,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":22,"run":0}
+{"ts":1758555677.940559,"level":"warn","r":173,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":34,"run":0}
+{"ts":1758555677.958635,"level":"warn","r":158,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":19,"run":0}
+{"ts":1758555677.961811,"level":"warn","r":155,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":16,"run":0}
+{"ts":1758555677.962656,"level":"warn","r":180,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":41,"run":0}
+{"ts":1758555677.962706,"level":"warn","r":167,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":28,"run":0}
+{"ts":1758555677.970973,"level":"warn","r":167,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":28,"run":0}
+{"ts":1758555677.971007,"level":"warn","r":155,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":16,"run":0}
+{"ts":1758555677.971019,"level":"warn","r":168,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":29,"run":0}
+{"ts":1758555677.971024,"level":"warn","r":180,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":41,"run":0}
+{"ts":1758555677.971029,"level":"warn","r":158,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":19,"run":0}
+{"ts":1758555677.972458,"level":"warn","r":168,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":29,"run":0}
+{"ts":1758555677.972491,"level":"warn","r":158,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":19,"run":0}
+{"ts":1758555677.976399,"level":"warn","r":180,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":41,"run":0}
+{"ts":1758555677.977922,"level":"warn","r":158,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":19,"run":0}
+{"ts":1758555677.980245,"level":"warn","r":158,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":19,"run":0}
+{"ts":1758555677.991197,"level":"warn","r":178,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":39,"run":0}
+{"ts":1758555677.991302,"level":"warn","r":180,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":41,"run":0}
+{"ts":1758555677.993987,"level":"warn","r":182,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":43,"run":0}
+{"ts":1758555677.997368,"level":"warn","r":180,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":41,"run":0}
+{"ts":1758555678.000175,"level":"warn","r":181,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":42,"run":0}
+{"ts":1758555678.000413,"level":"warn","r":166,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":27,"run":0}
+{"ts":1758555678.005349,"level":"warn","r":166,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":27,"run":0}
+{"ts":1758555678.006575,"level":"warn","r":181,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":42,"run":0}
+{"ts":1758555678.009478,"level":"warn","r":181,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":42,"run":0}
+{"ts":1758555678.009618,"level":"warn","r":166,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":27,"run":0}
+{"ts":1758555678.012593,"level":"warn","r":181,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":42,"run":0}
+{"ts":1758555678.016002,"level":"warn","r":151,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":12,"run":0}
+{"ts":1758555678.016417,"level":"warn","r":142,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":3,"run":0}
+{"ts":1758555678.018232,"level":"warn","r":142,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":3,"run":0}
+{"ts":1758555678.031410,"level":"warn","r":151,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":12,"run":0}
+{"ts":1758555678.031688,"level":"warn","r":188,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":49,"run":0}
+{"ts":1758555678.032361,"level":"warn","r":188,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":49,"run":0}
+{"ts":1758555678.032452,"level":"warn","r":151,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":12,"run":0}
+{"ts":1758555678.033191,"level":"warn","r":151,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":12,"run":0}
+{"ts":1758555678.034693,"level":"warn","r":188,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":49,"run":0}
+{"ts":1758555678.037486,"level":"warn","r":151,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":12,"run":0}
+{"ts":1758555678.037540,"level":"warn","r":188,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":49,"run":0}
+{"ts":1758555678.040713,"level":"warn","r":188,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":49,"run":0}
+{"ts":1758555678.041246,"level":"warn","r":151,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":12,"run":0}
+{"ts":1758555678.042576,"level":"warn","r":188,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":49,"run":0}
+{"ts":1758555678.056806,"level":"warn","r":141,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":2,"run":0}
+{"ts":1758555678.062867,"level":"warn","r":167,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":28,"run":0}
+{"ts":1758555678.071470,"level":"warn","r":156,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":17,"run":0}
+{"ts":1758555678.073674,"level":"warn","r":156,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":17,"run":0}
+{"ts":1758555678.075019,"level":"warn","r":156,"file":"http_client.go","line":1151,"msg":"Non ok http code","code":503,"status":"HTTP/1.1 503","thread":17,"run":0}
+Ended after 901.993714ms : 500 calls. qps=554.33
+Aggregated Function Time : count 500 avg 0.038816898 +/- 0.04776 min 0.000254104 max 0.234570914 sum 19.4084491
+# range, mid point, percentile, count
+>= 0.000254104 <= 0.001 , 0.000627052 , 2.20, 11
+> 0.001 <= 0.002 , 0.0015 , 3.60, 7
+> 0.002 <= 0.003 , 0.0025 , 6.00, 12
+> 0.003 <= 0.004 , 0.0035 , 11.40, 27
+> 0.004 <= 0.005 , 0.0045 , 14.20, 14
+> 0.005 <= 0.006 , 0.0055 , 15.40, 6
+> 0.006 <= 0.007 , 0.0065 , 19.00, 18
+> 0.007 <= 0.008 , 0.0075 , 21.60, 13
+> 0.008 <= 0.009 , 0.0085 , 24.40, 14
+> 0.009 <= 0.01 , 0.0095 , 28.20, 19
+> 0.01 <= 0.011 , 0.0105 , 34.00, 29
+> 0.011 <= 0.012 , 0.0115 , 36.20, 11
+> 0.012 <= 0.014 , 0.013 , 41.80, 28
+> 0.014 <= 0.016 , 0.015 , 49.40, 38
+> 0.016 <= 0.018 , 0.017 , 52.40, 15
+> 0.018 <= 0.02 , 0.019 , 55.80, 17
+> 0.02 <= 0.025 , 0.0225 , 60.40, 23
+> 0.025 <= 0.03 , 0.0275 , 67.20, 34
+> 0.03 <= 0.035 , 0.0325 , 69.40, 11
+> 0.035 <= 0.04 , 0.0375 , 71.00, 8
+> 0.04 <= 0.045 , 0.0425 , 73.00, 10
+> 0.045 <= 0.05 , 0.0475 , 73.80, 4
+> 0.05 <= 0.06 , 0.055 , 78.40, 23
+> 0.06 <= 0.07 , 0.065 , 79.80, 7
+> 0.07 <= 0.08 , 0.075 , 83.00, 16
+> 0.08 <= 0.09 , 0.085 , 86.20, 16
+> 0.09 <= 0.1 , 0.095 , 89.00, 14
+> 0.1 <= 0.12 , 0.11 , 91.60, 13
+> 0.12 <= 0.14 , 0.13 , 93.40, 9
+> 0.14 <= 0.16 , 0.15 , 95.00, 8
+> 0.16 <= 0.18 , 0.17 , 96.80, 9
+> 0.18 <= 0.2 , 0.19 , 99.40, 13
+> 0.2 <= 0.234571 , 0.217285 , 100.00, 3
+# target 50% 0.0164
+# target 75% 0.0526087
+# target 90% 0.107692
+# target 99% 0.196923
+# target 99.9% 0.228809
+Error cases : count 357 avg 0.01562927 +/- 0.01294 min 0.000254104 max 0.056472877 sum 5.5796495
+# range, mid point, percentile, count
+>= 0.000254104 <= 0.001 , 0.000627052 , 3.08, 11
+> 0.001 <= 0.002 , 0.0015 , 5.04, 7
+> 0.002 <= 0.003 , 0.0025 , 8.40, 12
+> 0.003 <= 0.004 , 0.0035 , 15.69, 26
+> 0.004 <= 0.005 , 0.0045 , 19.61, 14
+> 0.005 <= 0.006 , 0.0055 , 21.29, 6
+> 0.006 <= 0.007 , 0.0065 , 26.33, 18
+> 0.007 <= 0.008 , 0.0075 , 29.69, 12
+> 0.008 <= 0.009 , 0.0085 , 33.05, 12
+> 0.009 <= 0.01 , 0.0095 , 37.82, 17
+> 0.01 <= 0.011 , 0.0105 , 45.94, 29
+> 0.011 <= 0.012 , 0.0115 , 48.74, 10
+> 0.012 <= 0.014 , 0.013 , 56.58, 28
+> 0.014 <= 0.016 , 0.015 , 67.23, 38
+> 0.016 <= 0.018 , 0.017 , 71.43, 15
+> 0.018 <= 0.02 , 0.019 , 75.63, 15
+> 0.02 <= 0.025 , 0.0225 , 81.79, 22
+> 0.025 <= 0.03 , 0.0275 , 88.80, 25
+> 0.03 <= 0.035 , 0.0325 , 90.76, 7
+> 0.035 <= 0.04 , 0.0375 , 92.16, 5
+> 0.04 <= 0.045 , 0.0425 , 94.12, 7
+> 0.045 <= 0.05 , 0.0475 , 94.68, 2
+> 0.05 <= 0.0564729 , 0.0532364 , 100.00, 19
+# target 50% 0.0123214
+# target 75% 0.0197
+# target 90% 0.0330714
+# target 99% 0.0552567
+# target 99.9% 0.0563513
+# Socket and IP used for each connection:
+[0]   9 socket used, resolved to 10.43.11.160:8081, connection timing : count 9 avg 0.00070217322 +/- 0.0006344 min 2.2707e-05 max 0.001940089 sum 0.006319559
+[1]   4 socket used, resolved to 10.43.11.160:8081, connection timing : count 4 avg 0.0018699067 +/- 0.002381 min 0.000191984 max 0.005953546 sum 0.007479627
+[2]   7 socket used, resolved to 10.43.11.160:8081, connection timing : count 7 avg 0.0011159783 +/- 0.001111 min 4.4413e-05 max 0.003323931 sum 0.007811848
+[3]   5 socket used, resolved to 10.43.11.160:8081, connection timing : count 5 avg 0.0020589116 +/- 0.003621 min 4.9454e-05 max 0.009294183 sum 0.010294558
+[4]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0015384011 +/- 0.003859 min 3.6789e-05 max 0.013081827 sum 0.015384011
+[5]   4 socket used, resolved to 10.43.11.160:8081, connection timing : count 4 avg 0.003490782 +/- 0.005537 min 0.000161611 max 0.013079077 sum 0.013963128
+[6]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0003682027 +/- 0.0002901 min 3.1122e-05 max 0.000871011 sum 0.003682027
+[7]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0011542288 +/- 0.001854 min 1.7415e-05 max 0.005781268 sum 0.011542288
+[8]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0019318015 +/- 0.002738 min 2.5457e-05 max 0.007924048 sum 0.019318015
+[9]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0004646946 +/- 0.0004619 min 2.1832e-05 max 0.00121644 sum 0.004646946
+[10]   7 socket used, resolved to 10.43.11.160:8081, connection timing : count 7 avg 0.00074395571 +/- 0.0009883 min 2.0248e-05 max 0.003045579 sum 0.00520769
+[11]   1 socket used, resolved to 10.43.11.160:8081, connection timing : count 1 avg 0.000706649 +/- 0 min 0.000706649 max 0.000706649 sum 0.000706649
+[12]   7 socket used, resolved to 10.43.11.160:8081, connection timing : count 7 avg 0.00087429614 +/- 0.0008375 min 4.5871e-05 max 0.00231714 sum 0.006120073
+[13]   1 socket used, resolved to 10.43.11.160:8081, connection timing : count 1 avg 0.000569286 +/- 0 min 0.000569286 max 0.000569286 sum 0.000569286
+[14]   2 socket used, resolved to 10.43.11.160:8081, connection timing : count 2 avg 0.009994355 +/- 0.009487 min 0.000507125 max 0.019481585 sum 0.01998871
+[15]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0007515997 +/- 0.0007084 min 9.8742e-05 max 0.002166777 sum 0.007515997
+[16]   9 socket used, resolved to 10.43.11.160:8081, connection timing : count 9 avg 0.000326732 +/- 0.0002486 min 1.954e-05 max 0.000846554 sum 0.002940588
+[17]   6 socket used, resolved to 10.43.11.160:8081, connection timing : count 6 avg 0.00021449617 +/- 0.000148 min 3.6039e-05 max 0.000432964 sum 0.001286977
+[18]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0009179359 +/- 0.001115 min 1.9581e-05 max 0.003173277 sum 0.009179359
+[19]   9 socket used, resolved to 10.43.11.160:8081, connection timing : count 9 avg 0.00032359322 +/- 0.0003868 min 2.0915e-05 max 0.001287892 sum 0.002912339
+[20]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0013578246 +/- 0.001937 min 8.2452e-05 max 0.006201858 sum 0.013578246
+[21]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0008682484 +/- 0.001158 min 5.7703e-05 max 0.003854637 sum 0.008682484
+[22]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0027860426 +/- 0.004312 min 1.829e-05 max 0.013330472 sum 0.027860426
+[23]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.000685168 +/- 0.0008429 min 2.0956e-05 max 0.002732106 sum 0.00685168
+[24]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0020952254 +/- 0.00376 min 2.2998e-05 max 0.012917173 sum 0.020952254
+[25]   8 socket used, resolved to 10.43.11.160:8081, connection timing : count 8 avg 0.0011066629 +/- 0.0009423 min 4.4496e-05 max 0.002845305 sum 0.008853303
+[26]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0006853261 +/- 0.0009658 min 4.9995e-05 max 0.003452129 sum 0.006853261
+[27]   7 socket used, resolved to 10.43.11.160:8081, connection timing : count 7 avg 0.0029386837 +/- 0.004164 min 0.000292226 max 0.012950921 sum 0.020570786
+[28]   6 socket used, resolved to 10.43.11.160:8081, connection timing : count 6 avg 0.0017091908 +/- 0.001849 min 0.000212482 max 0.005559412 sum 0.010255145
+[29]   4 socket used, resolved to 10.43.11.160:8081, connection timing : count 4 avg 0.0038274515 +/- 0.005444 min 0.000305557 max 0.013243563 sum 0.015309806
+[30]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0025102325 +/- 0.003974 min 3.908e-05 max 0.012908549 sum 0.025102325
+[31]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0018509375 +/- 0.00379 min 4.5455e-05 max 0.013042621 sum 0.018509375
+[32]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0008202025 +/- 0.001029 min 2.5123e-05 max 0.003094909 sum 0.008202025
+[33]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.001967311 +/- 0.003839 min 2.8914e-05 max 0.013164694 sum 0.01967311
+[34]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0024931589 +/- 0.004369 min 1.9665e-05 max 0.013226648 sum 0.024931589
+[35]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0006909049 +/- 0.0006986 min 4.0413e-05 max 0.002108116 sum 0.006909049
+[36]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0009712443 +/- 0.001689 min 2.9373e-05 max 0.005597742 sum 0.009712443
+[37]   1 socket used, resolved to 10.43.11.160:8081, connection timing : count 1 avg 6.9911e-05 +/- 0 min 6.9911e-05 max 6.9911e-05 sum 6.9911e-05
+[38]   1 socket used, resolved to 10.43.11.160:8081, connection timing : count 1 avg 0.001371386 +/- 0 min 0.001371386 max 0.001371386 sum 0.001371386
+[39]   4 socket used, resolved to 10.43.11.160:8081, connection timing : count 4 avg 0.0011444673 +/- 0.0009119 min 2.8664e-05 max 0.002522415 sum 0.004577869
+[40]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0026012666 +/- 0.003571 min 0.000161237 max 0.010993375 sum 0.026012666
+[41]   9 socket used, resolved to 10.43.11.160:8081, connection timing : count 9 avg 0.00052037789 +/- 0.0004493 min 2.5456e-05 max 0.001303808 sum 0.004683401
+[42]   7 socket used, resolved to 10.43.11.160:8081, connection timing : count 7 avg 0.0015952243 +/- 0.001215 min 0.000182402 max 0.003263561 sum 0.01116657
+[43]   3 socket used, resolved to 10.43.11.160:8081, connection timing : count 3 avg 0.0043486653 +/- 0.003244 min 0.001019749 max 0.008747104 sum 0.013045996
+[44]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.001905462 +/- 0.002461 min 3.2206e-05 max 0.006854637 sum 0.01905462
+[45]   6 socket used, resolved to 10.43.11.160:8081, connection timing : count 6 avg 0.0014261175 +/- 0.00119 min 0.000421798 max 0.003923215 sum 0.008556705
+[46]   9 socket used, resolved to 10.43.11.160:8081, connection timing : count 9 avg 0.0031563342 +/- 0.006044 min 2.5498e-05 max 0.020060537 sum 0.028407008
+[47]   3 socket used, resolved to 10.43.11.160:8081, connection timing : count 3 avg 0.003093173 +/- 0.002059 min 0.000637322 max 0.005675527 sum 0.009279519
+[48]  10 socket used, resolved to 10.43.11.160:8081, connection timing : count 10 avg 0.0030259809 +/- 0.006477 min 2.7539e-05 max 0.022324139 sum 0.030259809
+[49]   6 socket used, resolved to 10.43.11.160:8081, connection timing : count 6 avg 0.00090992433 +/- 0.001048 min 8.841e-05 max 0.002983293 sum 0.005459546
+Connection time (s) : count 375 avg 0.0015243253 +/- 0.003064 min 1.7415e-05 max 0.022324139 sum 0.571621988
+Sockets used: 375 (for perfect keepalive, would be 50)
+Uniform: false, Jitter: false, Catchup allowed: true
+IP addresses distribution:
+10.43.11.160:8081: 375
+Code 200 : 143 (28.6 %)
+Code 503 : 357 (71.4 %)
+Response Header Sizes : count 500 avg 45.838 +/- 72.43 min 0 max 161 sum 22919
+Response Body/Total Sizes : count 500 avg 580.274 +/- 536.1 min 241 max 1428 sum 290137
+All done 500 calls (plus 0 warmup) 38.817 ms avg, 554.3 qps
