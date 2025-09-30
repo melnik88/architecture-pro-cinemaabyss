@@ -42,6 +42,22 @@ function shouldRouteToMicroservice(migrationPercent) {
   return randomPercent < migrationPercent;
 }
 
+// Movies health check - always route to microservice
+app.use('/api/movies/health', createProxyMiddleware({
+  target: config.moviesServiceUrl,
+  changeOrigin: true,
+  onError: (err, req, res) => {
+    console.error(`Movies service health check error:`, err.message);
+    res.status(502).json({
+      error: 'Bad Gateway',
+      message: 'Movies service temporarily unavailable'
+    });
+  },
+  onProxyReq: (proxyReq, req, res) => {
+    console.log(`Proxying movies health check ${req.method} ${req.url} to ${config.moviesServiceUrl}`);
+  }
+}));
+
 // Movies routing with Strangler Fig pattern
 app.use('/api/movies', (req, res, next) => {
   const routeToMicroservice = shouldRouteToMicroservice(config.moviesMigrationPercent);
@@ -63,7 +79,14 @@ app.use('/api/movies', (req, res, next) => {
       });
     },
     onProxyReq: (proxyReq, req, res) => {
-      console.log(`Proxying ${req.method} ${req.url} to ${targetUrl}`);
+      console.log(`Proxying ${req.method} ${req.url} to ${targetUrl} with body ${req.body}`);
+      if (req.body && Object.keys(req.body).length) {
+        const bodyData = JSON.stringify(req.body);
+        proxyReq.setHeader('Content-Type', 'application/json');
+        proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
+        proxyReq.write(bodyData);
+        proxyReq.end();
+      }
     },
     onProxyRes: (proxyRes, req, res) => {
       console.log(`Response from ${targetUrl}: ${proxyRes.statusCode}`);
@@ -86,6 +109,13 @@ app.use('/api/events', createProxyMiddleware({
   },
   onProxyReq: (proxyReq, req, res) => {
     console.log(`Proxying events ${req.method} ${req.url} to ${config.eventsServiceUrl}`);
+    if (req.body && Object.keys(req.body).length) {
+      const bodyData = JSON.stringify(req.body);
+      proxyReq.setHeader('Content-Type', 'application/json');
+      proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
+      proxyReq.write(bodyData);
+      proxyReq.end();
+    }
   }
 }));
 
@@ -101,7 +131,14 @@ app.use('/api', createProxyMiddleware({
     });
   },
   onProxyReq: (proxyReq, req, res) => {
-    console.log(`Proxying ${req.method} ${req.url} to monolith: ${config.monolithUrl}`);
+    console.log(`Proxying ${req.method} ${req.url} to monolith: ${config.monolithUrl}, body: ${req.body}`);
+    if (req.body && Object.keys(req.body).length) {
+      const bodyData = JSON.stringify(req.body);
+      proxyReq.setHeader('Content-Type', 'application/json');
+      proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
+      proxyReq.write(bodyData);
+      proxyReq.end();
+    }
   }
 }));
 
